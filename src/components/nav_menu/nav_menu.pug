@@ -1,51 +1,13 @@
 header.navigation(role='banner')
 	.navigation-wrapper
+		a.logo(href='/')
+			img(src='/images/logo.png', alt='Логотип', title='Логотип')
 		a#js-mobile-menu.navigation-menu-button(href='javascript:void(0)') MENU
 		nav(role='navigation')
 			ul#js-navigation-menu.navigation-menu.show
 				li.nav-link
-					a(href='/') Главная
-				li#js-navigation-more.nav-link.more
-					a(href='javascript:void(0)') О компании
-					ul.submenu
-						li
-							a(href='javascript:void(0)') О нашей компании
-						li
-							a(href='javascript:void(0)') Аттестаты
-						li
-							a(href='/eksperty_i_auditory.html') Эксперты и аудиторы
-						li
-							a(href='javascript:void(0)') ДП 02.01.08 Порядок рассмотрения апелляции, жалоб и спорных вопросов
-						li
-							a(href='javascript:void(0)') П 01.01.11 Положение о комиссии по апелляциям, жалобам и споным вопросам
-				li#js-navigation-more.nav-link.more
-					a(href='javascript:void(0)') Услуги
-					ul.submenu
-						li
-							a(href='javascript:void(0)') Сертификация систем менеджмента
-						li
-							a(href='javascript:void(0)') Сертификация продукции
-						li
-							a(href='javascript:void(0)') Сертификация услуг
-						li
-							a(href='/ispytatelnyi_centr.html') Испытания продукции
-						li
-							a(href='javascript:void(0)') Метрология
-						li
-							a(href='javascript:void(0)') Политики
-				li#js-navigation-more.nav-link.more
-					a(href='javascript:void(0)') Таможенный союз
-					ul.submenu
-						li
-							a(href='javascript:void(0)') Технический регламент
-				li#js-navigation-more.nav-link.more
-					a(href='javascript:void(0)') Реестр заказчиков
-					ul.submenu
-						li
-							a(href='javascript:void(0)') 2013
-						li
-							a(href='javascript:void(0)') 2014
-						li
-							a(href='javascript:void(0)') 2015
+					a.go_to(href='#advantage') О компании
 				li.nav-link
-					a(href='javascript:void(0)') Контакты
+					a.go_to(href='#service') Услуги
+				li.nav-link
+					a.go_to(href='#contact') Контакты

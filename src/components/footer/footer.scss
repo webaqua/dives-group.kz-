@@ -1,6 +1,6 @@
 .footer {
-  background: $primary;
-  padding: ($footer_base_spacing * 2) $gutter;
+  background: $secondary;
+  padding: 3em 0;
   width: 100%;
 
   .footer-logo {
@@ -42,20 +42,20 @@
     }
   }
 
-  li h3 {
-    color: $footer_footer_color;
+  li h5 {
+    color: #fff;
     font-size: 1em;
     margin-bottom: 0.4em;
   }
 
   hr {
-    border: 1px solid transparentize($footer_footer_disclaimer_color, 0.3);
+    border: 1px solid #fff;
     margin: 0 auto $footer_base_spacing;
     width: 12em;
   }
 
   p {
-    color: $footer_footer_disclaimer_color;
+    color: #fff;
     font-size: 0.9em;
     line-height: 1.5em;
     margin: auto;
@@ -67,9 +67,35 @@
 }
 @media screen and (max-width: 600px){
   .footer {
-    padding: 1em;
+    padding: 1em 0;
     ul {
       margin-bottom: 1em;
     }
   }
+}
+#map_canvas {
+  height: 300px;
+  width: 100%;
+  margin: 2em auto;
+}
+
+#map_canvas img {
+  max-width: none;
+// to prevent UI control bug
+}
+
+#map_canvas .content {
+  padding: 0 0.5em 1em 0.5em;
+}
+
+#map_canvas .firstHeading {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1em;
+  margin: 0;
+}
+
+#map_canvas #bodyContent p {
+  font-size: 1em;
+  margin: 0;
 }

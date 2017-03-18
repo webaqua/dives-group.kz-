@@ -1,0 +1,83 @@
+#service {
+  display: table;
+  width: 100%;
+  background: url(/images/servbg.jpg) no-repeat center fixed;
+  background-size: cover;
+  padding: 2em 0;
+  h3 {
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0em auto 1em;
+  }
+  .serv {
+    width: 30%;
+    margin-left: 5%;
+    padding: 1em 1.5em 2em;
+    float: left;
+    margin-bottom: 2em;
+    background: #fff;
+    box-shadow: 1px 1px 7px 2px rgba(0,0,0,.4);
+    img {
+      width: 30%;
+      margin: 1em auto 2em;
+      display: block;
+    }
+    h4 {
+      text-align: center;
+    }
+    p.podrik {
+      float: right;
+      display: table;
+      background: $secondary;
+      border-radius: 3px;
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin: 0;
+    }
+    ul {
+      padding-left: 30px;
+      list-style-type: disc;
+      display: none;
+      width: 100%;
+      padding-bottom: 10px;
+    }
+  }
+  .serv:first-of-type {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 900px){
+  #service {
+    h3 {
+      font-size: 1.5em;
+    }
+    .serv {
+      width: 44%;
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+    .serv:first-of-type {
+      margin-left: 28%;
+    }
+  }
+}
+@media screen and (max-width: 600px){
+  #service {
+  padding: 2em 0 1em;
+    .serv {
+      width: 100%;
+      margin-left: 0%;
+      margin-right: 0%;
+      img {
+        margin: 1em auto;
+      }
+      ul {
+        padding-left: 20px;
+      }
+    }
+    .serv:first-of-type {
+      margin-left: 0%;
+    }
+  }
+}

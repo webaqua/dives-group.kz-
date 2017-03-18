@@ -1,28 +1,30 @@
 header.navigation {
-  background-color: $nav_menu_navigation_background;
+  background-color: #fff;
   min-height: $nav_menu_navigation_height;
   width: 100%;
-  z-index: 999;
-  margin-bottom: 2em;
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,.4);
 
   .navigation-wrapper {
     @include clearfix;
     position: relative;
     z-index: 9999;
+    @include outer-container;
+    padding: 0 2em;
+  	@media screen and (max-width: 600px){padding: 0 1em;}
   }
 
   .logo {
     float: left;
     max-height: $nav_menu_navigation_height;
-    padding-left: $nav_menu_navigation_padding;
-    padding-right: 2em;
 
     img {
       max-height: $nav_menu_navigation_height;
-      padding: 0.8em 0;
+      padding: 0.4em 0;
     }
   }
-
 
 // Mobile view
 
@@ -32,17 +34,11 @@ header.navigation {
     float: right;
     line-height: $nav_menu_navigation_height;
     margin: 0;
-    padding-right: 1em;
     text-decoration: none;
     text-transform: uppercase;
 
     @include media ($nav_menu_horizontal_bar_mode) {
       display: none;
-    }
-
-    &:focus,
-    &:hover {
-      color: $nav_menu_navigation_color_hover;
     }
   }
 
@@ -53,264 +49,43 @@ header.navigation {
     float: none;
     min-height: $nav_menu_navigation_height;
     z-index: 9999999;
+    padding-left: 1em;
 
     @include media ($nav_menu_horizontal_bar_mode) {
-      float: left;
+      float: right;
     }
   }
 
   ul.navigation-menu {
     clear: both;
-    display: none;
     margin: 0 auto;
     overflow: visible;
     padding: 0;
     width: 100%;
     z-index: 9999;
-
-    &.show {
-      display: block;
-    }
-
-    @include media ($nav_menu_horizontal_bar_mode) {
-      display: inline;
-      margin: 0;
-      padding: 0;
-    }
+    @media screen and (max-width: 900px){display: none;}
   }
-
 
 // The nav items
 
   ul li.nav-link {
-    background: $nav_menu_navigation_background;
     display: block;
     line-height: $nav_menu_navigation_height;
     overflow: hidden;
-    text-align: right;
-    width: 100%;
     z-index: 9999;
+    @media screen and (max-width: 600px){line-height: 35px;}
 
     @include media ($nav_menu_horizontal_bar_mode) {
-      background: transparent;
       display: inline;
       line-height: $nav_menu_navigation_height;
       text-decoration: none;
-      width: auto;
     }
 
     a {
-      color: #fff;
+      color: $secondary;
       display: inline-block;
       text-decoration: none;
       padding: 0 1em;
-
-      &:focus,
-      &:hover {
-        background: $primhov;
-      }
-    }
-  }
-
-  .active-nav-item a {
-    border-bottom: 1px solid $nav_menu_navigation_active_link_color;
-    padding-bottom: 3px;
-  }
-
-
-// Sub menus
-
-  li.more.nav-link {
-    padding-right: 0;
-
-    > a::after {
-      @include position(absolute, auto 0.2em auto auto);
-      color: $nav_menu_navigation_color;
-      content: "\25BE";
-    }
-  }
-
-  li.more {
-    overflow: visible;
-    padding-right: 0;
-
-    a {
-      padding-right: 1.5em !important;
-    }
-
-    > a {
-      position: relative;
-
-      &::after {
-        content: "›";
-        font-size: 1.2em;
-        position: absolute;
-        right: $nav_menu_navigation_submenu_padding / 2;
-      }
-    }
-
-    &:focus > .submenu,
-    &:hover > .submenu {
-      display: block;
-    }
-
-    @include media($nav_menu_horizontal_bar_mode) {
-      padding-right: 0.8em;
-      position: relative;
-    }
-  }
-
-  ul.submenu {
-    display: none;
-    padding-left: 0;
-
-    @include media($nav_menu_horizontal_bar_mode) {
-      left: -$nav_menu_navigation_submenu_padding;
-      position: absolute;
-      top: 1.5em;
-    }
-
-    .submenu.fly-out-right {
-      @include media($nav_menu_horizontal_bar_mode) {
-        left: $nav_menu_navigation_submenu_width - 0.2em;
-        top: 0;
-      }
-    }
-
-    .submenu.fly-out-left {
-      @include media($nav_menu_horizontal_bar_mode) {
-        left: -$nav_menu_navigation_submenu_width + 0.2em;
-        top: 0;
-      }
-    }
-
-    .submenu {
-      @include media($nav_menu_horizontal_bar_mode) {
-        left: $nav_menu_navigation_submenu_width - 0.2em;
-        top: 0;
-      }
-    }
-
-    li {
-      display: block;
-      padding-right: 0;
-
-      @include media($nav_menu_horizontal_bar_mode) {
-        line-height: normal;
-
-        &:first-child > a {
-          border-top-left-radius: $nav_menu_base_border_radius;
-          border-top-right-radius: $nav_menu_base_border_radius;
-        }
-
-        &:last-child > a {
-          border-bottom-left-radius: $nav_menu_base_border_radius;
-          border-bottom-right-radius: $nav_menu_base_border_radius;
-          border-bottom: none;
-        }
-      }
-
-      a {
-        background-color: darken($nav_menu_navigation_background, 3%);
-        display: inline-block;
-        text-align: right;
-        width: 100%;
-        padding: 12px 10px;
-        border-bottom: 1px solid rgba(175, 170, 170, 0.7);
-
-        @include media($nav_menu_horizontal_bar_mode) {
-          background-color: $nav_menu_navigation_background;
-          text-align: left;
-          width: $nav_menu_navigation_submenu_width;
-        }
-      }
-    }
-  }
-
-
-// Elements on the far right
-
-  .navigation-tools {
-    background: #505050;
-    clear: both;
-    display: block;
-    height: $nav_menu_navigation_height;
-
-    @include media($nav_menu_horizontal_bar_mode) {
-      background: transparent;
-      clear: none;
-      float: right;
-    }
-  }
-
-
-// Search bar
-
-  .search-bar {
-    $search-bar-border-color: $base-border-color;
-    $search-bar-border: 1px solid $search-bar-border-color;
-    $search-bar-background: lighten($search-bar-border-color, 10%);
-
-    float: left;
-    padding: 0.85em 0.85em 0.7em 0.6em;
-    width: 60%;
-
-    form {
-      position: relative;
-
-      input[type=search] {
-        background: $nav_menu_navigation_search_background;
-        border: $nav_menu_navigation_search_border;
-        border-radius: $nav_menu_base_border_radius * 2;
-        box-sizing: border-box;
-        color: $nav_menu_navigation_color;
-        font-size: 0.9em;
-        font-style: italic;
-        margin: 0;
-        padding: 0.5em 0.8em;
-        width: 100%;
-
-        @include media($nav_menu_horizontal_bar_mode) {
-          width: 100%;
-        }
-      }
-
-      button[type=submit] {
-        background: $nav_menu_navigation_search_background;
-        border: 0;
-        bottom: 0.3em;
-        left: auto;
-        outline: none;
-        padding: 0 9px;
-        position: absolute;
-        right: 0.3em;
-        top: 0.3em;
-
-        img {
-          height: 12px;
-          opacity: 0.7;
-          padding: 1px;
-        }
-      }
-    }
-
-    @include media($nav_menu_horizontal_bar_mode) {
-      display: inline-block;
-      position: relative;
-      width: 16em;
-
-      input {
-        box-sizing: border-box;
-        display: block;
-      }
-    }
-  }
-}
-@media screen and (max-width: 900px){
-  header.navigation ul.submenu li {
-    line-height: normal !important;
-    a {
-      line-height: normal;
     }
   }
 }
